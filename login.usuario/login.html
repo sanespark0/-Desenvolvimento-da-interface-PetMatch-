@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PetMatch — Entrar</title>
+  
+  <!-- CSS Principal (com as regras do login incluídas no final) -->
+  <link rel="stylesheet" href="login.css">
+  
+  <!-- Fonte Nunito -->
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div class="auth-container">
+    
+    <!-- Lado Esquerdo: Banner (Some no mobile) -->
+    <aside class="auth-banner">
+      <div class="banner-content">
+        <div class="logo">
+          <div class="logo-icon">🐾</div>
+          <span class="logo-text">PetMatch</span>
+        </div>
+        <h1>Que bom te ver de novo!</h1>
+        <p>Seu próximo melhor amigo pode estar esperando por você agora mesmo.</p>
+        <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=600&q=80" alt="Gato fofo">
+      </div>
+    </aside>
+
+    <!-- Lado Direito: Formulário -->
+    <main class="auth-form">
+      <div class="form-wrapper">
+        
+        <header class="form-header">
+          <h2>Acesse sua conta</h2>
+          <p>Não tem uma conta? <a href="../Cadastro.usuario/cadastro.html">Cadastre-se</a></p>
+        </header>
+
+        <form id="form-login">
+          <div class="input-group">
+            <label for="email">E-mail</label>
+            <input type="email" id="email" placeholder="seu@email.com" required />
+          </div>
+
+          <div class="input-group">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+              <label for="senha" style="margin: 0;">Senha</label>
+              <a href="#" class="link-esqueceu">Esqueceu a senha?</a>
+            </div>
+            <input type="password" id="senha" placeholder="Sua senha" required />
+          </div>
+
+          <button type="submit" class="btn-primary" style="margin-top: 16px;">Entrar</button>
+        </form>
+
+        <!-- Divisor -->
+        <div class="divisor">
+          <hr>
+          <span>ou continue com</span>
+          <hr>
+        </div>
+
+        <!-- Botões Sociais -->
+        <div class="social-group">
+          <button type="button" class="btn-social">
+            <img src="/img/google-novo-logo-g.jpg" width="18" alt="Google"> Google
+          </button>
+          <button type="button" class="btn-social">
+            <img src="/img/fb_icon_325x325.png" width="18" alt="Facebook"> Facebook
+          </button>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- JavaScript do Login -->
+  <script src="login.js"></script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PetMatch — Criar Conta</title>
+  <link rel="stylesheet" href="cadastro.css">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div class="auth-container">
+    
+    <!-- Lado Esquerdo: Apresentação (Esconde no mobile) -->
+    <aside class="auth-banner">
+      <div class="banner-content">
+        <div class="logo">
+          <div class="logo-icon">🐾</div>
+          <span class="logo-text">PetMatch</span>
+        </div>
+        <h1>Junte-se a nós e transforme vidas.</h1>
+        <p>Encontre o companheiro perfeito ou ajude a encontrar um novo lar para quem precisa.</p>
+        <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=600&q=80" alt="Cachorro feliz">
+      </div>
+    </aside>
+
+    <!-- Lado Direito: Formulário -->
+    <main class="auth-form">
+      <div class="form-wrapper">
+        
+        <!-- Cabeçalho do Form -->
+        <header class="form-header">
+          <h2>Crie sua conta</h2>
+          <p>Já tem uma conta? <a href="#">Faça login</a></p>
+        </header>
+
+        <form id="form-cadastro">
+          
+          <!-- ETAPA 1: Dados Pessoais -->
+          <div class="etapa ativa" id="etapa-1">
+            <div class="input-group">
+              <label for="nome">Nome completo</label>
+              <input type="text" id="nome" placeholder="Seu nome" required />
+            </div>
+
+            <div class="input-group">
+              <label for="email">E-mail</label>
+              <input type="email" id="email" placeholder="seu@email.com" required />
+            </div>
+
+            <div class="input-group">
+              <label for="senha">Senha</label>
+              <input type="password" id="senha" placeholder="Mínimo de 8 caracteres" required />
+            </div>
+
+            <button type="button" class="btn-primary" onclick="proximaEtapa(2)">Próximo passo</button>
+          </div>
+
+          <!-- ETAPA 2: Perfil -->
+          <div class="etapa" id="etapa-2">
+            <div class="input-group">
+              <label>Qual é o seu objetivo?</label>
+              <div class="radio-group">
+                <label class="radio-card">
+                  <input type="radio" name="objetivo" value="adotar" checked>
+                  <span class="radio-content">
+                    <span class="emoji">🤍</span>
+                    <strong>Quero Adotar</strong>
+                    <small>Encontrar um pet</small>
+                  </span>
+                </label>
+                <label class="radio-card">
+                  <input type="radio" name="objetivo" value="doar">
+                  <span class="radio-content">
+                    <span class="emoji">🏠</span>
+                    <strong>Quero Doar</strong>
+                    <small>Sou ONG ou Resgate</small>
+                  </span>
+                </label>
+              </div>
+            </div>
+
+            <div class="input-group">
+              <label for="cidade">Cidade</label>
+              <input type="text" id="cidade" placeholder="Ex: São Paulo, SP" required />
+            </div>
+
+            <div class="btn-group">
+              <button type="button" class="btn-secondary" onclick="voltarEtapa(1)">Voltar</button>
+              <button type="submit" class="btn-primary">Criar Conta</button>
+            </div>
+          </div>
+
+        </form>
+      </div>
+    </main>
+  </div>
+
+  <script src="cadastro.js"></script>
+</body>
+</html>

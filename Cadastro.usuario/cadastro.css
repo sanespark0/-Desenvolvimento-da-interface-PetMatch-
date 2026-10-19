@@ -1,0 +1,252 @@
+/* ===== RESET E VARIÁVEIS ===== */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --laranja: #FF7A45;
+  --laranja-hover: #E56A3A;
+  --laranja-claro: #FFF0EB;
+  --texto-escuro: #2B2B2B;
+  --texto-cinza: #8A8A8A;
+  --fundo: #FCF9F2;
+  --branco: #FFFFFF;
+  --borda: #E8E4DA;
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background-color: var(--fundo);
+  color: var(--texto-escuro);
+  min-height: 100vh;
+}
+
+/* ===== LAYOUT GERAL ===== */
+.auth-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ===== LADO ESQUERDO (BANNER) ===== */
+.auth-banner {
+  display: none; /* Escondido no mobile */
+  flex: 1;
+  background-color: var(--laranja);
+  padding: 40px;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.banner-content {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 24px;
+  font-weight: 800;
+  margin-bottom: 60px;
+}
+
+.banner-content h1 {
+  font-size: 48px;
+  line-height: 1.1;
+  margin-bottom: 16px;
+  font-weight: 800;
+}
+
+.banner-content p {
+  font-size: 18px;
+  opacity: 0.9;
+  margin-bottom: 40px;
+  max-width: 400px;
+}
+
+.banner-content img {
+  width: 100%;
+  max-width: 350px;
+  border-radius: 24px;
+  margin-top: auto; /* Empurra a imagem pro final */
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+/* ===== LADO DIREITO (FORMULÁRIO) ===== */
+.auth-form {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.form-wrapper {
+  width: 100%;
+  max-width: 440px;
+}
+
+.form-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.form-header h2 {
+  font-size: 28px;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.form-header p {
+  font-size: 14px;
+  color: var(--texto-cinza);
+}
+
+.form-header a {
+  color: var(--laranja);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+/* ===== ETAPAS DO FORMULÁRIO ===== */
+.etapa {
+  display: none; /* Esconde todas as etapas */
+  animation: fadeIn 0.4s ease;
+}
+
+.etapa.ativa {
+  display: block; /* Mostra só a ativa */
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== INPUTS ===== */
+.input-group {
+  margin-bottom: 20px;
+}
+
+.input-group label {
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--texto-escuro);
+}
+
+.input-group input[type="text"],
+.input-group input[type="email"],
+.input-group input[type="password"] {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 1px solid var(--borda);
+  background: var(--branco);
+  font-family: inherit;
+  font-size: 15px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.input-group input:focus {
+  border-color: var(--laranja);
+}
+
+/* ===== RADIO CARDS (Adotar / Doar) ===== */
+.radio-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.radio-card input {
+  display: none; /* Esconde o radio padrão */
+}
+
+.radio-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 16px;
+  border-radius: 16px;
+  border: 2px solid var(--borda);
+  background: var(--branco);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.radio-content .emoji {
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+
+.radio-content strong {
+  font-size: 15px;
+  color: var(--texto-escuro);
+}
+
+.radio-content small {
+  font-size: 11px;
+  color: var(--texto-cinza);
+}
+
+/* Quando selecionado */
+.radio-card input:checked + .radio-content {
+  border-color: var(--laranja);
+  background: var(--laranja-claro);
+}
+
+/* ===== BOTÕES ===== */
+.btn-primary, .btn-secondary {
+  width: 100%;
+  padding: 16px;
+  border-radius: 12px;
+  border: none;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-primary {
+  background: var(--laranja);
+  color: white;
+  margin-top: 8px;
+}
+
+.btn-primary:hover {
+  background: var(--laranja-hover);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--texto-cinza);
+  border: 1px solid var(--borda);
+}
+
+.btn-secondary:hover {
+  background: var(--borda);
+  color: var(--texto-escuro);
+}
+
+/* ===== GRUPO DE BOTÕES ===== */
+.btn-group {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+/* ===== RESPONSIVO (Desktop) ===== */
+@media (min-width: 900px) {
+  .auth-banner {
+    display: flex; /* Mostra o banner no desktop */
+  }
+}

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PetMatch — Encontre seu novo amigo</title>
+  
+  <!-- CSS PRINCIPAL -->
+  <link rel="stylesheet" href="petmatch.css">
+  
+  <!-- GOOGLE FONTS -->
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div class="app">
+    
+    <!-- SIDEBAR / BOTTOM NAV -->
+    <nav class="navbar">
+      <div class="nav-logo">
+        <div class="logo-icon">🐾</div>
+        <span class="logo-text">PetMatch</span>
+      </div>
+      <ul class="nav-links">
+        <li class="ativo"><a href="#"><span class="icon">🏠</span><span class="label">Home</span></a></li>
+        <li><a href="#"><span class="icon">🔍</span><span class="label">Explorar</span></a></li>
+        <li><a href="#"><span class="icon">🤍</span><span class="label">Favoritos</span></a></li>
+        <li><a href="#"><span class="icon">💬</span><span class="label">Mensagens</span></a></li>
+        <li><a href="#"><span class="icon">👤</span><span class="label">Perfil</span></a></li>
+      </ul>
+    </nav>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="conteudo">
+      
+      <!-- Headers -->
+      <header class="mobile-header">
+        <div class="logo-mobile">
+          <div class="logo-icon">🐾</div>
+          <span class="logo-text">PetMatch</span>
+        </div>
+        <div class="header-actions">
+          <button class="btn-notif">🔔</button>
+          <img src="img/thumbnail (1).svg" alt="Perfil" class="avatar-header">
+        </div>
+      </header>
+
+      <header class="desktop-header">
+        <h1 id="titulo-boas-vindas">Bem-vindo de volta! 👋</h1>
+        <div class="header-actions">
+          <button class="btn-notif">🔔</button>
+          <img src="img/Frame.png" alt="Perfil" class="avatar-header">
+        </div>
+      </header>
+
+      <!-- Busca -->
+      <div class="busca-container">
+        <div class="busca-wrapper">
+          <span class="busca-icon">🔍</span>
+          <input type="search" class="busca" placeholder="Buscar pet..." />
+        </div>
+        <button class="btn-filtros">⚲</button>
+      </div>
+
+      <!-- Categorias -->
+      <nav class="categorias">
+        <button class="categoria ativo">🐶 Cães</button>
+        <button class="categoria">🐱 Gatos</button>
+        <button class="categoria">🐰 Coelhos</button>
+        <button class="categoria">🦜 Aves</button>
+      </nav>
+
+      <!-- Seção: Perto de você -->
+      <section class="secao">
+        <div class="secao-header">
+          <h2>Pertos de você</h2>
+          <a href="#">Ver todos</a>
+        </div>
+        <div class="carrossel-pets" id="carrossel-recentes"></div>
+      </section>
+
+      <!-- Banner de Stats -->
+      <section class="banner-stats">
+        <div class="banner-header">
+          <span>✨</span>
+          <h3>Amor que Transforma</h3>
+        </div>
+        <div class="stats-grid">
+          <div class="stat-item">
+            <div class="stat-icon">🤍</div>
+            <strong>+2.500</strong>
+            <span>pets adotados</span>
+          </div>
+          <div class="stat-item">
+            <div class="stat-icon">🏠</div>
+            <strong>150</strong>
+            <span>ONGs parceiras</span>
+          </div>
+          <div class="stat-item">
+            <div class="stat-icon">😊</div>
+            <strong>98%</strong>
+            <span>satisfação</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Seção: Adicionados recentemente -->
+      <section class="secao">
+        <div class="secao-header">
+          <h2>Adicionados recentemente</h2>
+          <a href="#">Ver todos</a>
+        </div>
+        <div class="lista-recentes" id="lista-adicionados"></div>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="pet.dados.js"></script>
+  <script src="petmatch.js"></script>
+ 
+</body>
+</html>

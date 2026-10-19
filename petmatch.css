@@ -1,0 +1,813 @@
+/* ============================================
+   RESET E VARIÁVEIS
+   ============================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --laranja: #FF7A45;
+  --laranja-hover: #E56A3A;
+  --laranja-claro: #FFF0EB;
+  --texto-escuro: #2B2B2B;
+  --texto-cinza: #8A8A8A;
+  --fundo: #FCF9F2;
+  --branco: #FFFFFF;
+  --borda: #F0EDE5;
+  --sombra-card: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background-color: var(--fundo);
+  color: var(--texto-escuro);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ============================================
+   LAYOUT GERAL (Mobile First)
+   ============================================ */
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding-bottom: 80px; /* Espaço pra bottom nav */
+}
+
+/* ============================================
+   NAVBAR (Mobile = Bottom Nav)
+   ============================================ */
+.navbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--branco);
+  border-top: 1px solid var(--borda);
+  display: flex;
+  justify-content: center;
+  z-index: 100;
+  padding: 10px 0;
+  box-shadow: 0 -4px 16px rgba(0,0,0,0.03);
+}
+
+.nav-logo {
+  display: none; /* Esconde logo no bottom nav do mobile */
+}
+
+.nav-links {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  list-style: none;
+  padding: 0 10px;
+}
+
+.nav-links li a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  text-decoration: none;
+  color: var(--texto-cinza);
+  font-size: 11px;
+  font-weight: 700;
+  transition: color 0.2s;
+}
+
+.nav-links li a .icon {
+  font-size: 22px;
+  transition: transform 0.2s;
+}
+
+.nav-links li.ativo a {
+  color: var(--laranja);
+}
+
+.nav-links li.ativo a .icon {
+  transform: translateY(-2px);
+}
+
+/* ============================================
+   CONTEÚDO
+   ============================================ */
+.conteudo {
+  padding: 20px 20px 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* ===== HEADERS ===== */
+.mobile-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.logo-mobile {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo-icon {
+  font-size: 20px;
+  background: var(--laranja);
+  color: white;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-text {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--texto-escuro);
+}
+
+.desktop-header {
+  display: none; /* Esconde no mobile */
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.btn-notif {
+  background: var(--branco);
+  border: 1px solid var(--borda);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.btn-notif:hover {
+  background: var(--fundo);
+}
+
+.avatar-header {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--branco);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* ===== BUSCA ===== */
+.busca-container {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.busca-wrapper {
+  flex: 1;
+  position: relative;
+}
+
+.busca-icon {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--texto-cinza);
+  font-size: 16px;
+}
+
+.busca {
+  width: 100%;
+  padding: 14px 16px 14px 44px;
+  border-radius: 16px;
+  border: 1px solid var(--borda);
+  background: var(--branco);
+  font-family: inherit;
+  font-size: 14px;
+  color: var(--texto-escuro);
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.busca:focus {
+  border-color: var(--laranja);
+  box-shadow: 0 0 0 3px rgba(255, 122, 69, 0.1);
+}
+
+.busca::placeholder {
+  color: var(--texto-cinza);
+  font-weight: 600;
+}
+
+.btn-filtros {
+  width: 50px;
+  height: 50px;
+  border-radius: 16px;
+  background: var(--laranja);
+  border: none;
+  color: white;
+  font-size: 22px;
+  cursor: pointer;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.btn-filtros:hover {
+  background: var(--laranja-hover);
+}
+
+/* ===== CATEGORIAS ===== */
+.categorias {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  margin-bottom: 28px;
+  padding-bottom: 4px;
+  scrollbar-width: none;
+}
+
+.categorias::-webkit-scrollbar {
+  display: none;
+}
+
+.categoria {
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: 1px solid var(--borda);
+  background: var(--branco);
+  color: var(--texto-escuro);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.categoria:hover {
+  border-color: var(--laranja);
+  color: var(--laranja);
+}
+
+.categoria.ativo {
+  background: var(--laranja);
+  border-color: var(--laranja);
+  color: white;
+}
+
+/* ===== SEÇÕES ===== */
+.secao {
+  margin-bottom: 32px;
+}
+
+.secao-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 16px;
+}
+
+.secao-header h2 {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--texto-escuro);
+}
+
+.secao-header a {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--laranja);
+  text-decoration: none;
+  padding-bottom: 2px;
+}
+
+.secao-header a:hover {
+  text-decoration: underline;
+}
+
+/* ===== CARROSSEL DE PETS (Mobile) ===== */
+.carrossel-pets {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding-bottom: 12px;
+  scrollbar-width: none;
+}
+
+.carrossel-pets::-webkit-scrollbar {
+  display: none;
+}
+
+.card-pet {
+  background: var(--branco);
+  border-radius: 20px;
+  overflow: hidden;
+  min-width: 200px;
+  max-width: 200px;
+  box-shadow: var(--sombra-card);
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.card-pet:hover {
+  transform: translateY(-4px);
+}
+
+.card-img-wrapper {
+  position: relative;
+  width: 100%;
+  height: 140px;
+}
+
+.card-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.badge-genero {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--texto-escuro);
+}
+
+.btn-favorito {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.95);
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s;
+}
+
+.btn-favorito:hover {
+  transform: scale(1.1);
+}
+
+.card-info {
+  padding: 16px;
+}
+
+.card-info h3 {
+  font-size: 16px;
+  font-weight: 800;
+  margin-bottom: 4px;
+  color: var(--texto-escuro);
+}
+
+.card-info p {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--texto-cinza);
+  margin-bottom: 10px;
+}
+
+.card-local {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--texto-cinza);
+}
+
+/* ===== BANNER DE STATS ===== */
+.banner-stats {
+  background: var(--laranja-claro);
+  border-radius: 24px;
+  padding: 24px 20px;
+  margin-bottom: 32px;
+}
+
+.banner-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.banner-header h3 {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--texto-escuro);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  text-align: center;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stat-icon {
+  width: 40px;
+  height: 40px;
+  background: var(--branco);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+  font-size: 18px;
+  box-shadow: 0 2px 8px rgba(255, 122, 69, 0.1);
+}
+
+.stat-item strong {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--texto-escuro);
+}
+
+.stat-item span {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--texto-cinza);
+}
+
+/* ===== LISTA DE RECENTES ===== */
+.lista-recentes {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.item-recente {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: var(--branco);
+  padding: 12px;
+  border-radius: 16px;
+  box-shadow: var(--sombra-card);
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.item-recente:hover {
+  transform: translateY(-2px);
+}
+
+.item-recente img {
+  width: 60px;
+  height: 60px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.item-info {
+  flex: 1;
+}
+
+.item-info h3 {
+  font-size: 15px;
+  font-weight: 800;
+  margin-bottom: 2px;
+}
+
+.item-info p {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--texto-cinza);
+  margin-bottom: 4px;
+}
+
+.item-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+  height: 100%;
+  gap: 8px;
+}
+
+.badge-idade {
+  background: var(--laranja-claro);
+  color: var(--laranja);
+  font-size: 11px;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 10px;
+}
+
+.btn-favorito-lista {
+  background: transparent;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  color: var(--texto-cinza);
+  transition: transform 0.2s;
+}
+
+.btn-favorito-lista:hover {
+  transform: scale(1.2);
+}
+
+
+/* ============================================
+   RESPONSIVO — TABLET (>= 768px)
+   ============================================ */
+@media (min-width: 768px) {
+  .conteudo {
+    padding: 32px;
+  }
+
+  /* Carrossel vira Grid para os cards respirarem */
+  .carrossel-pets {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    overflow: visible;
+  }
+
+  .card-pet {
+    min-width: unset;
+    max-width: unset;
+  }
+
+  .card-img-wrapper {
+    height: 180px;
+  }
+
+  .banner-stats {
+    padding: 32px;
+  }
+
+  .stats-grid {
+    gap: 40px;
+  }
+}
+
+
+/* ============================================
+   RESPONSIVO — DESKTOP (>= 1024px)
+   ============================================ */
+@media (min-width: 1024px) {
+  .app {
+    flex-direction: row;
+    padding-bottom: 0;
+  }
+
+  /* NAVBAR VIRA SIDEBAR LATERAL */
+  .navbar {
+    position: sticky;
+    top: 0;
+    left: 0;
+    bottom: auto;
+    width: 260px;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 40px 24px;
+    border-top: none;
+    border-right: 1px solid var(--borda);
+    gap: 48px;
+    box-shadow: none;
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 24px;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    width: 100%;
+    padding: 0;
+  }
+
+  .nav-links li {
+    width: 100%;
+  }
+
+  .nav-links li a {
+    flex-direction: row;
+    gap: 14px;
+    font-size: 16px;
+    padding: 14px 18px;
+    border-radius: 14px;
+    width: 100%;
+  }
+
+  .nav-links li a .icon {
+    font-size: 22px;
+  }
+
+  .nav-links li.ativo a {
+    background: var(--laranja-claro);
+  }
+
+  /* CONTEÚDO */
+  .conteudo {
+    padding: 48px;
+    max-width: 100%;
+  }
+
+  .mobile-header {
+    display: none;
+  }
+
+  .desktop-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+  }
+
+  .desktop-header h1 {
+    font-size: 32px;
+    font-weight: 800;
+  }
+
+  /* Layout das categorias sem scroll */
+  .categorias {
+    flex-wrap: wrap;
+    overflow: visible;
+    margin-bottom: 40px;
+  }
+
+  /* Carrossel com 4 colunas no desktop */
+  .carrossel-pets {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+
+  /* Stats com layout mais espaçado */
+  .banner-stats {
+    padding: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .banner-header {
+    margin-bottom: 0;
+  }
+  
+  .banner-header h3 {
+    font-size: 20px;
+  }
+
+  .stats-grid {
+    display: flex;
+    gap: 60px;
+  }
+
+  .stat-item strong {
+    font-size: 22px;
+  }
+
+  .stat-item span {
+    font-size: 13px;
+  }
+
+  /* Aumentar imagens na lista de recentes */
+  .item-recente img {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+/* ============================================
+   MOBILE PEQUENO (<= 380px) - Ajustes Finos
+   ============================================ */
+@media (max-width: 380px) {
+  .card-pet {
+    min-width: 170px;
+    max-width: 170px;
+  }
+  
+  .card-img-wrapper {
+    height: 120px;
+  }
+
+  .item-recente {
+    gap: 10px;
+  }
+
+  .item-recente img {
+    width: 50px;
+    height: 50px;
+  }
+}
+/* ============================================
+   MELHORIAS DE UX E DESIGN (Toque Premium)
+   ============================================ */
+
+/* 1. Cards de Pets mais modernos */
+.card-pet {
+  border-radius: 24px; /* Mais arredondado */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s;
+}
+
+.card-pet:hover {
+  transform: translateY(-8px); /* Efeito de flutuar */
+  box-shadow: 0 16px 32px rgba(255, 122, 69, 0.12); /* Sombra laranjinha */
+}
+
+/* 2. Ajuste fino na imagem para preencher tudo */
+.card-img-wrapper {
+  border-radius: 24px 24px 0 0;
+  overflow: hidden;
+}
+
+/* 3. Botão de favorito com fundo escuro semi-transparente */
+.btn-favorito {
+  background: rgba(0, 0, 0, 0.3); /* Fundo escuro */
+  backdrop-filter: blur(4px);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.btn-favorito:hover {
+  background: rgba(0, 0, 0, 0.6);
+  transform: scale(1.1);
+}
+
+/* 4. Header mais próximo e elegante */
+.desktop-header {
+  margin-bottom: 24px; /* Era 40px */
+}
+
+.desktop-header h1 {
+  font-size: 28px; /* Era 32px */
+  font-weight: 700; /* Era 800 */
+  letter-spacing: -0.5px; /* Deixa a fonte mais moderna */
+}
+
+/* 5. Ajuste nos emojis das categorias */
+.categoria {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Espaço entre emoji e texto */
+}
+
+/* 6. Ver todos com "underline" animado no hover */
+.secao-header a {
+  position: relative;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.secao-header a::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background-color: var(--laranja);
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.secao-header a:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
